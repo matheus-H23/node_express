@@ -8,11 +8,17 @@ const port =  process.env.port || 3000
 
 let i = 10;
 
-app.get('/', function (req, res) {
-        i++;
-        res.render('pages/index', {i: i});
-});
+const resolver = (req, res) => {
+  res.send('Olá veio');
+}
 
-app.listen(port, function(){
+app.get('/', resolver);
+
+app.listen(port, (err) => {
+  if (err) {
+    console.log('error')
+  } else {
     console.log('Wiki-How is running on port: ', port);
+  }
+
 });
