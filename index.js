@@ -6,9 +6,11 @@ app.set('view engine', 'ejs');
 
 const port =  process.env.port || 3000
 
+let i = 10;
 
 app.get('/', function (req, res) {
-        res.render('index');
+        i++;
+        res.render('pages/index', {i: i});
 });
 
 app.listen(port, function(){
