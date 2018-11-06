@@ -1,23 +1,31 @@
+//import default modules
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const categorias = require('./routes/categorias');
+const axios = require('axios')
+
+// import person modules
+const categorias = require('./routes/categorias')
+
+
+//port definition
+const port =  process.env.port || 3000
+
+//set app properties
 
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded())
 
-const port =  process.env.port || 3000
+// main route
+app.get('/', (req, res) => {
+  console.log('Index Render')
+  res.send('Index Entri')
+})
 
-const resolver = async (req, res) => {
-  const content = await axios.get('https://wiki-how-matheus-h23.firebaseio.com/teste.json')
-  console.log(content.data)
-  res.render('pages/index', {i: content.data})
-}
-
-app.get('/', resolver)
-
+// categories route
 app.use('/categorias',categorias)
 
+// start listening
 app.listen(port, (err) => {
   if (err) {
     console.log('error')

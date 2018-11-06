@@ -1,0 +1,5 @@
+<form method="post" action="/publicacoes/editar/<%= publicacao.id %>">
+    <input placeholder="Insira o titulo da publicação" type="text" name="title" value="<%= publicacao.title %>" /> <br />
+    <input placeholder="Insira o conteúdo da publicação" type="text" name="content" value="<%= publicacao.content %>" /> <br />
+    <button>Salvar</button>
+</form>

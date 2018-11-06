@@ -1,4 +1,4 @@
-const md_categorias = require('../model/md_categorias');
+const md_categorias = require('../model/md_main');
 
 const list = async (req, res) => {
     const categorias = await md_categorias.list('categorias')
