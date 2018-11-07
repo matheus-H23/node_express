@@ -13,12 +13,14 @@ const create = async (req, res) => {
     await md_categorias.create('categorias', {
       categoria: req.body.categoria
     })
+    console.log('New categorie created')
   res.redirect('/categorias')
 }
 
 const remove = async (req, res) => {
     await md_categorias.remove('categorias', req.params.id)
     await md_categorias.remove('publicacoes', req.params.id)
+    console.log('Categorie deleted')
     res.redirect('/categorias')
 }
 
@@ -33,6 +35,7 @@ const update =  async (req, res) => {
     await md_categorias.update('categorias', req.params.id, {
       categoria: req.body.categoria
   })
+  console.log('Categorie updated')
   res.redirect('/categorias')
 }
 

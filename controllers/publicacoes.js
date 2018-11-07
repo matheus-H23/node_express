@@ -16,11 +16,13 @@ const create = async (req, res) => {
       titulo: req.body.titulo,
       conteudo: req.body.conteudo
     })
+    console.log('New post created')
   res.redirect('/publicacoes/categoria/'+req.body.categoria)
 }
 
 const remove = async (req, res) => {
     await md_main.remove('publicacoes/'+req.params.categoria, req.params.id)
+    console.log('Post deleted')
     res.redirect('/publicacoes/categoria/'+ req.params.categoria)
 }
 
@@ -37,6 +39,7 @@ const update =  async (req, res) => {
       titulo: req.body.titulo,
       conteudo: req.body.conteudo
   })
+  console.log('Post updated')
   res.redirect('/publicacoes/categoria/'+req.params.categoria)
 }
 
