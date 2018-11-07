@@ -18,6 +18,7 @@ const create = async (req, res) => {
 
 const remove = async (req, res) => {
     await md_categorias.remove('categorias', req.params.id)
+    await md_categorias.remove('publicacoes', req.params.id)
     res.redirect('/categorias')
 }
 
