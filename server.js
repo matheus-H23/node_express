@@ -2,10 +2,10 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const axios = require('axios')
 
 // import person modules
 const categorias = require('./routes/categorias')
+const publicacoes = require('./routes/publicacoes')
 
 
 //port definition
@@ -16,14 +16,14 @@ const port =  process.env.port || 3000
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded())
 
-// main route
+//main route
 app.get('/', (req, res) => {
-  console.log('Index Render')
-  res.send('Index Entri')
+  res.render('pages/index')
 })
 
 // categories route
 app.use('/categorias',categorias)
+app.use('/publicacoes',publicacoes)
 
 // start listening
 app.listen(port, (err) => {
